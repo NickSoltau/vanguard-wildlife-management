@@ -1,0 +1,74 @@
+---
+interface Props {
+  stacked?: boolean;
+  class?: string;
+  eager?: boolean;
+}
+const { stacked = false, class: className = '', eager = false } = Astro.props;
+---
+
+<span class={`brand-mark ${stacked ? 'brand-mark--stacked' : ''} ${className}`}>
+  <img
+    src="/images/logo-icon-reversed.png"
+    width="289"
+    height="83"
+    alt=""
+    class="brand-mark__icon"
+    loading={eager ? 'eager' : 'lazy'}
+  />
+  <span class="brand-mark__text">
+    <strong>VWM</strong>
+    <small>Vanguard Wildlife Management</small>
+  </span>
+</span>
+
+<style>
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-mark--stacked {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .brand-mark__icon {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  .brand-mark--stacked .brand-mark__icon {
+    height: 46px;
+  }
+
+  .brand-mark__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+
+  .brand-mark--stacked .brand-mark__text {
+    align-items: center;
+  }
+
+  .brand-mark__text strong {
+    font-family: 'Sancreek', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-mark__text small {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tan);
+  }
+</style>
