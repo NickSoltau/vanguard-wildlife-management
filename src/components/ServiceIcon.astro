@@ -1,0 +1,39 @@
+---
+interface Props {
+  kind: 'wildlife' | 'exclusion' | 'habitat' | 'protection';
+}
+const { kind } = Astro.props;
+---
+
+<svg class="service-icon" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  {kind === 'wildlife' && (
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24,30 C18,20 22,10 30,8 M30,8 L26,2 M30,8 L36,4 M30,8 L24,12" />
+      <path d="M24,30 C30,44 28,50 32,54 C36,50 34,44 40,30" />
+      <path d="M40,30 C46,20 42,10 34,8 M34,8 L38,2 M34,8 L28,4 M34,8 L40,12" />
+      <ellipse cx="32" cy="32" rx="9" ry="7" />
+    </g>
+  )}
+  {kind === 'exclusion' && (
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10,32 L32,14 L54,32" />
+      <path d="M16,28 V54 H48 V28" />
+      <path d="M28,54 V38 H36 V54" />
+    </g>
+  )}
+  {kind === 'habitat' && (
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20,54 V46" />
+      <polygon points="20,44 10,44 20,28 12,28 20,14 28,28 20,28 30,44" />
+      <path d="M46,54 V44" />
+      <polygon points="46,42 38,42 46,28 40,28 46,18 52,28 46,28 54,42" />
+    </g>
+  )}
+  {kind === 'protection' && (
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12,44 V22 M12,22 L20,18 M20,18 V44 M20,18 L28,22 M28,22 V44" />
+      <path d="M36,44 V22 M36,22 L44,18 M44,18 V44 M44,18 L52,22 M52,22 V44" />
+      <path d="M12,44 H52" />
+    </g>
+  )}
+</svg>

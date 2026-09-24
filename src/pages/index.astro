@@ -1,0 +1,607 @@
+---
+import Emblem from '../components/Emblem.astro';
+import Wordmark from '../components/Wordmark.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+
+const PHONE_DISPLAY = '419-555-1234';
+const PHONE_TEL = '+14195551234';
+const EMAIL = 'info@vanguardwildlife.com';
+
+const services = [
+  {
+    kind: 'wildlife' as const,
+    title: 'Nuisance Wildlife Control',
+    body: 'Targeted removal of deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons causing damage to crops, barns, and feed storage, handled under proper state permitting.',
+  },
+  {
+    kind: 'exclusion' as const,
+    title: 'Exclusion Solutions',
+    body: 'Fencing, barriers, and access-point sealing that keep problem wildlife out of fields, outbuildings, and stored feed for good.',
+  },
+  {
+    kind: 'habitat' as const,
+    title: 'Habitat Management',
+    body: 'Land and cover adjustments that reduce nuisance pressure on your property while supporting a healthy, balanced wildlife population nearby.',
+  },
+  {
+    kind: 'protection' as const,
+    title: 'Property Protection',
+    body: 'Ongoing monitoring and response for agricultural and rural landowners dealing with recurring crop and property damage.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Do you handle nuisance permits for deer and geese?',
+    answer:
+      'Yes — we assist with the permitting process for agricultural nuisance deer and geese removal in Ohio, so you stay compliant while we address the damage.',
+  },
+  {
+    question: 'What animals do you deal with?',
+    answer:
+      'Deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons — with a focus on species causing damage to crops, barns, and feed storage on rural and agricultural properties.',
+  },
+  {
+    question: 'How fast can you respond?',
+    answer: 'We respond to inquiries within 24 hours.',
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: 'Northwest Ohio and surrounding areas.',
+  },
+  {
+    question: 'Are your methods humane?',
+    answer: 'Yes — all our methods follow AVMA (American Veterinary Medical Association) humane handling standards.',
+  },
+  {
+    question: 'Do you use pesticides or chemicals?',
+    answer:
+      'Never. We use no pesticides or chemicals of any kind. The safety of children, pets, and livestock on your property is a top priority in every method we use.',
+  },
+  {
+    question: 'How much does it cost?',
+    answer: 'Pricing is provided as a custom quote based on your property and the scope of work.',
+  },
+];
+
+const title = 'Vanguard Wildlife Management | Nuisance Wildlife Control, Northwest Ohio';
+const description =
+  'Chemical-free nuisance wildlife control, exclusion, and habitat management for agricultural and rural properties in Northwest Ohio. Ohio-certified. AVMA humane methods.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:site_name" content="Vanguard Wildlife Management" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sancreek&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Vanguard Wildlife Management',
+      description,
+      url: String(Astro.site),
+      telephone: PHONE_TEL,
+      email: EMAIL,
+      areaServed: {
+        '@type': 'State',
+        name: 'Ohio',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'OH',
+        addressCountry: 'US',
+      },
+      founder: [
+        { '@type': 'Person', name: 'Nick Soltau' },
+        { '@type': 'Person', name: 'Jeff Yerington' },
+      ],
+      slogan: 'Protecting Your Property | Balancing Wildlife | Preserving Tomorrow',
+    })} />
+
+    <FaqSchema items={faqs} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="brand" aria-label="Vanguard Wildlife Management, home">
+          <Wordmark />
+        </a>
+        <nav class="header-actions" aria-label="Quick contact">
+          <a class="btn btn-ghost" href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
+          <a class="btn btn-solid" href={`mailto:${EMAIL}`}>Email Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-inner">
+          <Emblem variant="dark" class="hero-emblem" />
+          <p class="tagline">Protecting Your Property <span aria-hidden="true">|</span> Balancing Wildlife <span aria-hidden="true">|</span> Preserving Tomorrow</p>
+          <p class="subline">100% Chemical-Free &amp; Pesticide-Free — Safe for Kids, Pets, and Livestock</p>
+          <div class="hero-ctas">
+            <a class="btn btn-solid btn-lg" href={`tel:${PHONE_TEL}`}>Call Now: {PHONE_DISPLAY}</a>
+            <a class="btn btn-outline btn-lg" href={`mailto:${EMAIL}`}>Email Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services" aria-labelledby="services-heading">
+        <div class="wrap">
+          <h2 id="services-heading">What We Handle</h2>
+          <div class="service-grid">
+            {services.map((service) => (
+              <article class="service-card">
+                <ServiceIcon kind={service.kind} />
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="wrap about-inner">
+          <h2 id="about-heading">Built on the Ground, Not in a Boardroom</h2>
+          <p>
+            Vanguard Wildlife Management was founded by Nick Soltau and Jeff Yerington — lifelong hunters
+            with experience ranging from small game to trophy big game across the region. That firsthand
+            knowledge of how wildlife moves, feeds, and behaves is what sets our approach apart from a
+            typical pest control outfit.
+          </p>
+          <p>
+            We hold the Ohio Commercial Nuisance Wild Animal Control Certification and specialize in
+            agricultural and rural properties, where unmanaged deer, geese, and other wildlife can mean
+            real losses at harvest. All of our methods follow AVMA humane handling standards, and we never
+            use pesticides or chemicals of any kind — the safety of your kids, pets, and livestock comes
+            first, always.
+          </p>
+          <p>
+            Our goal isn't just removal — it's a lasting, balanced solution that protects your land without
+            losing sight of responsible wildlife management.
+          </p>
+          <p class="service-area">Proudly serving Northwest Ohio and the surrounding area.</p>
+        </div>
+      </section>
+
+      <section class="faq" id="faq" aria-labelledby="faq-heading">
+        <div class="wrap">
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqs.map((item) => (
+              <details class="faq-item">
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <Wordmark class="footer-wordmark" />
+        <div class="footer-contact">
+          <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <span>Northwest Ohio &amp; Surrounding Areas</span>
+        </div>
+        <p class="footer-tagline">People <span aria-hidden="true">|</span> Property <span aria-hidden="true">|</span> Wildlife <span aria-hidden="true">|</span> A Balanced Tomorrow</p>
+        <p class="footer-copy">&copy; {new Date().getFullYear()} Vanguard Wildlife Management. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      :root {
+        --forest: #16241a;
+        --forest-deep: #0f1a12;
+        --khaki: #b7a878;
+        --khaki-light: #d9cca0;
+        --cream: #f2ead9;
+        --black: #12100c;
+        --ink: #1c2b20;
+        --max-width: 1120px;
+        --font-display: 'Sancreek', serif;
+        --font-heading: 'Oswald', sans-serif;
+        --font-body: 'Inter', sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--forest);
+        margin: 0 0 0.6em;
+      }
+
+      p {
+        margin: 0 0 1em;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--forest);
+        border-bottom: 3px solid var(--khaki);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .brand {
+        display: inline-flex;
+        text-decoration: none;
+      }
+
+      /* Emblem/Wordmark/ServiceIcon are separate components, so their
+         rendered SVGs carry a different Astro scoping id than this file —
+         these rules must be :global to actually reach them. */
+      :global(.vwm-wordmark) {
+        height: 44px;
+        width: auto;
+        display: block;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 10px 18px;
+        border-radius: 2px;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-solid {
+        background: var(--khaki);
+        color: var(--forest-deep);
+        border-color: var(--khaki);
+      }
+
+      .btn-solid:hover {
+        background: var(--khaki-light);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--cream);
+        border-color: var(--khaki);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(183, 168, 120, 0.15);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--forest);
+        border-color: var(--forest);
+      }
+
+      .btn-outline:hover {
+        background: var(--forest);
+        color: var(--cream);
+      }
+
+      .btn-lg {
+        font-size: 1rem;
+        padding: 16px 30px;
+      }
+
+      /* hero */
+      .hero {
+        background: radial-gradient(circle at 50% -10%, #24391f 0%, var(--forest) 55%, var(--forest-deep) 100%);
+        color: var(--cream);
+        padding: 56px 0 64px;
+        text-align: center;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      :global(.hero-emblem) {
+        width: min(420px, 80vw);
+        height: auto;
+        display: block;
+        margin: 0 auto 8px;
+      }
+
+      .tagline {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        font-size: clamp(0.95rem, 2vw, 1.25rem);
+        color: var(--khaki-light);
+        max-width: 720px;
+        margin-bottom: 10px;
+      }
+
+      .subline {
+        max-width: 560px;
+        color: var(--cream);
+        opacity: 0.9;
+        font-size: 1.05rem;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .hero-ctas .btn-outline {
+        color: var(--cream);
+        border-color: var(--cream);
+      }
+
+      .hero-ctas .btn-outline:hover {
+        background: var(--cream);
+        color: var(--forest-deep);
+      }
+
+      /* services */
+      .services {
+        padding: 72px 0;
+      }
+
+      .services h2,
+      .about h2,
+      .faq h2 {
+        text-align: center;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin-bottom: 40px;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 24px;
+      }
+
+      .service-card {
+        background: var(--forest);
+        color: var(--cream);
+        padding: 32px 24px;
+        border-top: 4px solid var(--khaki);
+        text-align: center;
+      }
+
+      :global(.service-icon) {
+        width: 48px;
+        height: 48px;
+        color: var(--khaki);
+        margin-bottom: 16px;
+      }
+
+      .service-card h3 {
+        color: var(--cream);
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+      }
+
+      .service-card p {
+        color: var(--khaki-light);
+        font-size: 0.92rem;
+        margin: 0;
+      }
+
+      /* about */
+      .about {
+        background: var(--khaki-light);
+        padding: 72px 0;
+      }
+
+      .about-inner {
+        max-width: 760px;
+      }
+
+      .about p {
+        font-size: 1.05rem;
+      }
+
+      .service-area {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        color: var(--forest);
+      }
+
+      /* faq */
+      .faq {
+        padding: 72px 0 88px;
+      }
+
+      .faq-list {
+        max-width: 760px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .faq-item {
+        background: #fff;
+        border: 1px solid rgba(22, 36, 26, 0.15);
+        border-radius: 4px;
+        padding: 4px 20px;
+      }
+
+      .faq-item summary {
+        cursor: pointer;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        padding: 16px 0;
+        list-style: none;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: '+';
+        float: right;
+        font-size: 1.3rem;
+        color: var(--khaki);
+      }
+
+      .faq-item[open] summary::after {
+        content: '\2212';
+      }
+
+      .faq-item p {
+        padding-bottom: 18px;
+        color: #3a4a3d;
+      }
+
+      /* footer */
+      .site-footer {
+        background: var(--forest-deep);
+        color: var(--khaki-light);
+        padding: 48px 0 32px;
+        text-align: center;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      :global(.footer-wordmark) {
+        height: 52px;
+        width: auto;
+        display: block;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        justify-content: center;
+        font-size: 0.95rem;
+      }
+
+      .footer-contact a {
+        text-decoration: none;
+        color: var(--cream);
+      }
+
+      .footer-contact a:hover {
+        color: var(--khaki);
+      }
+
+      .footer-tagline {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.85rem;
+        color: var(--khaki);
+        margin: 0;
+      }
+
+      .footer-copy {
+        font-size: 0.75rem;
+        opacity: 0.6;
+        margin: 0;
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanguardwildlifemanagement.com/sitemap-index.xml

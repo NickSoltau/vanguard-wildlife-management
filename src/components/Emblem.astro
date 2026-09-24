@@ -1,0 +1,117 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+
+const { variant = 'dark', class: className = '' } = Astro.props;
+
+const ink = variant === 'dark' ? '#f2ead9' : '#1c2b20';
+const accent = variant === 'dark' ? '#b7a878' : '#4a5a3f';
+const deep = variant === 'dark' ? '#0f1a12' : '#0f1a12';
+---
+
+<svg
+  class={`vwm-emblem ${className}`}
+  viewBox="0 0 600 460"
+  role="img"
+  aria-label="Vanguard Wildlife Management crest"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- ground line -->
+  <line x1="70" y1="272" x2="530" y2="272" stroke={accent} stroke-width="2" />
+
+  <!-- pine trees, left -->
+  <g fill={variant === 'dark' ? '#3c4f34' : '#2c3a26'}>
+    <polygon points="95,272 118,230 141,272" />
+    <polygon points="99,240 118,204 137,240" />
+    <rect x="114" y="272" width="8" height="14" fill={deep} />
+  </g>
+  <!-- pine trees, right -->
+  <g fill={variant === 'dark' ? '#3c4f34' : '#2c3a26'}>
+    <polygon points="459,272 482,230 505,272" />
+    <polygon points="463,240 482,204 501,240" />
+    <rect x="478" y="272" width="8" height="14" fill={deep} />
+  </g>
+
+  <!-- mountains -->
+  <g stroke={deep} stroke-width="3" stroke-linejoin="round">
+    <polygon points="220,272 300,120 340,180 300,272" fill={accent} opacity="0.55" />
+    <polygon points="260,272 340,90 430,272" fill={accent} opacity="0.85" />
+    <polygon points="180,272 250,150 320,272" fill={accent} opacity="0.7" />
+    <!-- snowcap accents -->
+    <polygon points="332,120 340,90 348,120 340,132" fill={ink} opacity="0.9" />
+  </g>
+
+  <!-- vanguard cross / dagger rising behind the peaks -->
+  <g fill={ink} stroke={deep} stroke-width="2.5" stroke-linejoin="round">
+    <polygon points="300,34 314,66 309,190 291,190 286,66" />
+    <rect x="262" y="92" width="76" height="13" rx="2" />
+    <polygon points="291,190 300,208 309,190" />
+  </g>
+
+  <!-- deer head + antlers, left: faceted wedge silhouette, low-poly style -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- antler crown, tight fan from one base point -->
+    <g fill="none" stroke={ink} stroke-width="7">
+      <path d="M150,146 L133,62" />
+      <path d="M150,146 L110,76" />
+      <path d="M150,146 L93,101" />
+      <path d="M150,146 L86,130" />
+    </g>
+    <!-- wedge head + snout, one faceted shape -->
+    <polygon
+      points="150,120 176,138 220,175 196,206 160,210 138,192 132,158"
+      fill={ink}
+      stroke={deep}
+      stroke-width="3"
+    />
+    <!-- ear, touching the skull -->
+    <polygon points="140,132 116,110 152,120" fill={ink} stroke={deep} stroke-width="3" />
+  </g>
+
+  <!-- wolf head, right: mirrored wedge, ears instead of antlers -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- perked ears -->
+    <polygon points="450,120 466,88 478,124" fill={ink} stroke={deep} stroke-width="3" />
+    <polygon points="470,132 490,106 496,138" fill={ink} stroke={deep} stroke-width="3" />
+    <!-- wedge head + snout, one faceted shape -->
+    <polygon
+      points="450,120 424,138 380,175 404,206 440,210 462,192 468,158"
+      fill={ink}
+      stroke={deep}
+      stroke-width="3"
+    />
+  </g>
+
+  <!-- wordmark -->
+  <text
+    x="300"
+    y="356"
+    text-anchor="middle"
+    font-family="'Sancreek', serif"
+    font-size="92"
+    fill={ink}
+    letter-spacing="4"
+  >VWM</text>
+  <text
+    x="300"
+    y="402"
+    text-anchor="middle"
+    font-family="'Oswald', sans-serif"
+    font-weight="700"
+    font-size="42"
+    fill={ink}
+    letter-spacing="10"
+  >VANGUARD</text>
+  <text
+    x="300"
+    y="430"
+    text-anchor="middle"
+    font-family="'Oswald', sans-serif"
+    font-weight="500"
+    font-size="19"
+    fill={accent}
+    letter-spacing="8"
+  >WILDLIFE MANAGEMENT</text>
+</svg>
