@@ -10,39 +10,82 @@ const services = [
   {
     icon: '/images/icon-nuisance-wildlife.png',
     iconSize: [79, 78],
-    title: 'Nuisance Wildlife Control',
-    body: 'Targeted removal of deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons causing damage to crops, barns, and feed storage, handled under proper state permitting.',
+    title: 'Trapping & Removal',
+    body: 'Trapping and hunting-style removal of deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons that damage crops, barns, and feed storage. No poisons, ever.',
   },
   {
-    icon: '/images/icon-exclusion.png',
-    iconSize: [79, 80],
-    title: 'Exclusion Solutions',
-    body: 'Fencing, barriers, and access-point sealing that keep problem wildlife out of fields, outbuildings, and stored feed for good.',
+    icon: '/images/icon-hazing.png',
+    iconSize: [80, 80],
+    title: 'Hazing & Deterrents',
+    body: 'Non-lethal options that move problem wildlife off your property, from scare devices to active hazing, so you can often solve the problem without removal.',
   },
   {
-    icon: '/images/icon-habitat.png',
-    iconSize: [81, 79],
-    title: 'Habitat Management',
-    body: 'Land and cover adjustments that reduce nuisance pressure on your property while supporting a healthy, balanced wildlife population nearby.',
+    icon: '/images/icon-permit.png',
+    iconSize: [80, 80],
+    title: 'Nuisance Permit Assistance',
+    body: 'We help you apply for and work through Ohio nuisance permits for deer and geese, from documenting the damage to understanding the timing.',
   },
   {
     icon: '/images/icon-property.png',
     iconSize: [80, 80],
-    title: 'Property Protection',
-    body: 'Ongoing monitoring and response for agricultural and rural landowners dealing with recurring crop and property damage.',
+    title: 'Assessment & Monitoring',
+    body: 'We walk your property, find where and how the damage is happening, and give you a plan. Ongoing monitoring is available for recurring problems.',
+  },
+];
+
+const audiences = [
+  'Farms & Ranches',
+  'Feed Mills',
+  'Cemeteries',
+  'Golf Courses',
+  'Municipalities',
+];
+
+const steps = [
+  {
+    title: 'Assessment & Permit Help',
+    body: 'We walk your property, document the damage, and help you complete the permit application. The state issues the permit and sets how many animals are allowed, based on the damage.',
+  },
+  {
+    title: 'Removal & Deterrents',
+    body: 'Our team handles the work. Anyone who shoots on your property is named on the permit and background-checked, as our license requires. You can be as involved as you like.',
+  },
+  {
+    title: 'Cleanup & Donation',
+    body: 'Carcass removal is available as an option. Venison is donated to organizations that will accept it. We never sell any part of an animal.',
   },
 ];
 
 const faqs = [
   {
-    question: 'Do you handle nuisance permits for deer and geese?',
-    answer:
-      'Yes — we assist with the permitting process for agricultural nuisance deer and geese removal in Ohio, so you stay compliant while we address the damage.',
-  },
-  {
     question: 'What animals do you deal with?',
     answer:
-      'Deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons — with a focus on species causing damage to crops, barns, and feed storage on rural and agricultural properties.',
+      'Deer, geese, woodchucks, possums, raccoons, coyotes, rats, mice, and pigeons, with a focus on species causing damage to crops, barns, and feed storage on rural and agricultural properties.',
+  },
+  {
+    question: 'Do you handle nuisance permits for deer and geese?',
+    answer:
+      'We help you through the process. We walk your property, document the damage, and help you complete the application and understand the timing. The state issues the permit and decides how many animals are allowed, based on the damage.',
+  },
+  {
+    question: 'What methods do you use?',
+    answer:
+      'We offer both non-lethal and lethal options. Non-lethal means hazing and deterrents. When removal is needed, we use trapping and hunting-style methods. We never use poisons, pesticides, or rodenticides.',
+  },
+  {
+    question: 'Who does the work on my property?',
+    answer:
+      'Our team does. Anyone who shoots on your property is named on the permit and has passed a background check, as our license requires. You can be as involved as you want, from hands-off to working alongside us.',
+  },
+  {
+    question: 'How does pricing work?',
+    answer:
+      'Every property is different, so we give a custom quote. It is built from three parts: the assessment and permit help, removal priced per animal, and optional carcass removal. The state permit sets how many animals are allowed, so the scope is clear up front.',
+  },
+  {
+    question: 'What happens to the deer afterward?',
+    answer:
+      'Carcass removal is an option if you want it. We donate venison to organizations that will accept it. We never sell any part of an animal.',
   },
   {
     question: 'How fast can you respond?',
@@ -50,26 +93,22 @@ const faqs = [
   },
   {
     question: 'What areas do you serve?',
-    answer: 'Northwest Ohio and surrounding areas.',
+    answer: 'Northwest Ohio and surrounding areas, focused on agricultural and rural properties.',
   },
   {
     question: 'Are your methods humane?',
-    answer: 'Yes — all our methods follow AVMA (American Veterinary Medical Association) humane handling standards.',
+    answer: 'Yes. All our methods follow AVMA (American Veterinary Medical Association) humane handling standards.',
   },
   {
     question: 'Do you use pesticides or chemicals?',
     answer:
-      'Never. We use no pesticides or chemicals of any kind. The safety of children, pets, and livestock on your property is a top priority in every method we use.',
-  },
-  {
-    question: 'How much does it cost?',
-    answer: 'Pricing is provided as a custom quote based on your property and the scope of work.',
+      'No. We do not use poisons, pesticides, or rodenticides. The safety of children, pets, and livestock on your property is a top priority in every method we use.',
   },
 ];
 
 const title = 'Vanguard Wildlife Management | Nuisance Wildlife Control, Northwest Ohio';
 const description =
-  'Chemical-free nuisance wildlife control, exclusion, and habitat management for agricultural and rural properties in Northwest Ohio. Ohio-certified. AVMA humane methods.';
+  'Chemical-free nuisance wildlife control for farms and rural properties in Northwest Ohio: trapping, hazing and deterrents, permit assistance, and property assessments. Ohio-certified. AVMA humane methods.';
 ---
 
 <!doctype html>
@@ -149,7 +188,7 @@ const description =
 
     <main>
       <section class="hero">
-        <div class="hero-photo" role="img" aria-label="Vanguard Wildlife Management crest over a mountain backdrop"></div>
+        <div class="hero-photo" role="img" aria-label="Vanguard Wildlife Management logo with a whitetail buck and a wolf on either side of a mountain peak"></div>
         <div class="hero-content">
           <div class="wrap">
             <p class="tagline">Protecting Your Property <span aria-hidden="true">|</span> Balancing Wildlife <span aria-hidden="true">|</span> Preserving Tomorrow</p>
@@ -184,6 +223,30 @@ const description =
         </div>
       </section>
 
+      <section class="serve" id="serve" aria-labelledby="serve-heading">
+        <div class="wrap">
+          <h2 id="serve-heading">Who We Serve</h2>
+          <ul class="serve-list">
+            {audiences.map((name) => <li>{name}</li>)}
+          </ul>
+          <p class="serve-note">And other rural landowners and agricultural businesses across Northwest Ohio.</p>
+        </div>
+      </section>
+
+      <section class="how" id="how-it-works" aria-labelledby="how-heading">
+        <div class="wrap">
+          <h2 id="how-heading">How It Works</h2>
+          <ol class="steps">
+            {steps.map((step) => (
+              <li class="step">
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section class="about" id="about" aria-labelledby="about-heading">
         <div class="wrap about-inner">
           <h2 id="about-heading">Built on the Ground, Not in a Boardroom</h2>
@@ -196,9 +259,10 @@ const description =
           <p>
             We hold the Ohio Commercial Nuisance Wild Animal Control Certification and specialize in
             agricultural and rural properties, where unmanaged deer, geese, and other wildlife can mean
-            real losses at harvest. All of our methods follow AVMA humane handling standards, and we never
-            use pesticides or chemicals of any kind — the safety of your kids, pets, and livestock comes
-            first, always.
+            real losses at harvest. We start with non-lethal hazing and deterrents where they work, and
+            use trapping or hunting-style removal when they don't. All of our methods follow AVMA humane
+            handling standards, and we never use poisons, pesticides, or rodenticides. The safety of your
+            kids, pets, and livestock comes first, always.
           </p>
           <p>
             Our goal isn't just removal — it's a lasting, balanced solution that protects your land without
@@ -238,7 +302,7 @@ const description =
           <span>Northwest Ohio &amp; Surrounding Areas</span>
         </div>
         <p class="footer-tagline">People <span aria-hidden="true">|</span> Property <span aria-hidden="true">|</span> Wildlife <span aria-hidden="true">|</span> A Balanced Tomorrow</p>
-        <p class="footer-copy">&copy; {new Date().getFullYear()} Vanguard Wildlife Management. All rights reserved.</p>
+        <p class="footer-copy">&copy; {new Date().getFullYear()} Vanguard Wildlife Management LLC. All rights reserved.</p>
       </div>
     </footer>
 
@@ -497,6 +561,95 @@ const description =
         color: var(--tan-light);
         font-size: 0.92rem;
         margin: 0;
+      }
+
+      /* who we serve */
+      .serve {
+        background: var(--near-black);
+        color: var(--cream);
+        padding: 64px 0;
+        text-align: center;
+      }
+
+      .serve h2 {
+        color: var(--cream);
+        text-align: center;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin-bottom: 32px;
+      }
+
+      .serve-list {
+        list-style: none;
+        margin: 0 0 20px;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .serve-list li {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        padding: 12px 22px;
+        border: 2px solid var(--olive-light);
+        color: var(--tan);
+      }
+
+      .serve-note {
+        color: var(--tan-light);
+        margin: 0;
+      }
+
+      /* how it works */
+      .how {
+        padding: 72px 0;
+      }
+
+      .how h2 {
+        text-align: center;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin-bottom: 40px;
+      }
+
+      .steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        counter-reset: step;
+      }
+
+      .step {
+        counter-increment: step;
+        background: #fff;
+        border: 1px solid rgba(28, 26, 21, 0.15);
+        border-top: 4px solid var(--olive-light);
+        padding: 28px 24px;
+      }
+
+      .step::before {
+        content: counter(step);
+        display: block;
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--olive);
+        margin-bottom: 8px;
+      }
+
+      .step h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+
+      .step p {
+        margin: 0;
+        color: #4a4638;
+        font-size: 0.95rem;
       }
 
       /* about */
